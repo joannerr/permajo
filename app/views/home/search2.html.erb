@@ -17,21 +17,21 @@
     <div class="row">
 
 				<% if params[:plante] != nil %>
-      <% @tab_association_plante.each do |association| %>
-			<% if association.source == 1 %>
+      <% @tab_ecosystem_plante.each do |ecosystem| %>
+			<% if ecosystem.source == 1 %>
 			      <div class="col-lg-4 col-md-6 mb-4">
 				       <div class="card h-100">
-								  <%= image_tag(association.plantae.Img, size: "358x330") %>
+								  <%= image_tag(ecosystem.plantae.Img, size: "358x330") %>
 								  <div class="card-body">
 				               <p class="card-text">
 
 												 <h5>CONSEILLER</h5>
-				 									<li> <a href="/search/<%= association.plantae.Plante %>"> <%= association.plantae.Plante %> </a> </li>
+				 									<li> <a href="/search/<%= ecosystem.plantae.Plante %>"> <%= ecosystem.plantae.Plante %> </a> </li>
 											</p>
 				           </div>
 			          </div>
 			        </div>
-				<% elsif association.source == 0 %>
+				<% elsif ecosystem.source == 0 %>
 				      <div class="col-lg-4 col-md-6 mb-4">
 					       <div class="card h-100">
 					          <%= image_tag("avatar.jpeg", size: "358x255") %>
@@ -39,12 +39,12 @@
 					               <p class="card-text">
 
 													 <h5>DECONSEILLER</h5>
-					 									<li> <a href="/search/<%= association.plantae.Plante %>"> <%= association.plantae.Plante %> </a> </li>
+					 									<li> <a href="/search/<%= ecosystem.plantae.Plante %>"> <%= ecosystem.plantae.Plante %> </a> </li>
 												</p>
 					           </div>
 				          </div>
 				        </div>
-								<% elsif association.source == 2 %>
+								<% elsif ecosystem.source == 2 %>
 								<div class="col-lg-4 col-md-6 mb-4">
 									 <div class="card h-100">
 											<%= image_tag("avatar.jpeg", size: "358x255") %>
@@ -52,7 +52,7 @@
 													 <p class="card-text">
 
 														 <h5>AVIS CONTRADICTOIRE</h5>
-															<li> <a href="/search/<%= association.plantae.Plante %>"> <%= association.plantae.Plante %> </a> </li>
+															<li> <a href="/search/<%= ecosystem.plantae.Plante %>"> <%= ecosystem.plantae.Plante %> </a> </li>
 													</p>
 											 </div>
 										</div>

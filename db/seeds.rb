@@ -190,7 +190,7 @@ puts "-"*70
 num_assso = 0
 ((tab_association_ail.size)+1).times do |i|
 	if i+1 != Plantae.find_by(Plante: "AIL").id
-		Association.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "AIL").id, source: tab_association_ail[num_assso])
+		Ecosystem.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "AIL").id, source: tab_association_ail[num_assso])
 		num_assso += 1
 	end
 end
@@ -199,7 +199,7 @@ end
 num_assso = 0
 ((tab_association_artichaut.size)+1).times do |i|
 	if i+1 != Plantae.find_by(Plante: "ARTICHAUT").id
-		Association.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "ARTICHAUT").id, source: tab_association_artichaut[num_assso])
+		Ecosystem.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "ARTICHAUT").id, source: tab_association_artichaut[num_assso])
 		num_assso += 1
 	end
 end
@@ -216,7 +216,7 @@ end
 num_assso = 0
 nb_de_fois.times do |i|
 	if i+1 != Plantae.find_by(Plante: "TOMATE").id
-		Association.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "TOMATE").id, source: tab_association_tomate[num_assso])
+		Ecosystem.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "TOMATE").id, source: tab_association_tomate[num_assso])
 		num_assso += 1
 	end
 end
@@ -234,7 +234,7 @@ end
 num_assso = 0
 nb_de_fois.times do |i|
 	if i+1 != Plantae.find_by(Plante: "POMME DE TERRE").id
-		Association.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "POMME DE TERRE").id, source: tab_association_patate[num_assso])
+		Ecosystem.create(plantae_id: i+1, plantae_id2: Plantae.find_by(Plante: "POMME DE TERRE").id, source: tab_association_patate[num_assso])
 		num_assso += 1
 	end
 end
@@ -314,12 +314,12 @@ puts "-"*80
 67.times do |i|
 	if i != Plantae.find_by(Plante: "AIL").id || i != Plantae.find_by(Plante: "TOMATE").id || i != Plantae.find_by(Plante: "POMME DE TERRE").id
 	# LE IF SERT JUSTE PARCE QUE PLUS HAUT J'AI DEJA BIEN REMLI POUR L'AIL / TOMATE ET POMME DE TERE :) (pas besoin de rajouter les 6 premier du coup ;D)
-		Association.create(plantae_id2: i+1, plantae_id: 1, source: tab_some_asssos[i][0])
-		Association.create(plantae_id2: i+1, plantae_id: 2, source: tab_some_asssos[i][1])
-		Association.create(plantae_id2: i+1, plantae_id: 3, source: tab_some_asssos[i][2])
-		Association.create(plantae_id2: i+1, plantae_id: 4, source: tab_some_asssos[i][3])
-		Association.create(plantae_id2: i+1, plantae_id: 5, source: tab_some_asssos[i][4])
-		Association.create(plantae_id2: i+1, plantae_id: 6, source: tab_some_asssos[i][5])
+		Ecosystem.create(plantae_id2: i+1, plantae_id: 1, source: tab_some_asssos[i][0])
+		Ecosystem.create(plantae_id2: i+1, plantae_id: 2, source: tab_some_asssos[i][1])
+		Ecosystem.create(plantae_id2: i+1, plantae_id: 3, source: tab_some_asssos[i][2])
+		Ecosystem.create(plantae_id2: i+1, plantae_id: 4, source: tab_some_asssos[i][3])
+		Ecosystem.create(plantae_id2: i+1, plantae_id: 5, source: tab_some_asssos[i][4])
+		Ecosystem.create(plantae_id2: i+1, plantae_id: 6, source: tab_some_asssos[i][5])
 	end
 end
 

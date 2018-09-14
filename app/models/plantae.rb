@@ -1,3 +1,3 @@
 class Plantae < ApplicationRecord
-	has_many :associations
+	has_many :ecosystems
 end
