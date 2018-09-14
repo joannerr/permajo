@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light navbar-transparent bg-faded nav-sticky">
+
+        <div class="container">
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img class='logo logo-dark' src="images/logo.png" alt="">
+                <img class='logo logo-light hidden-md-down' src="images/logo-light.png" alt="">
+            </a>
+            <div  id="navbarNavDropdown" class="navbar-collapse collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" aria-haspopup="true" aria-expanded="false" href=<%= root_path %> >Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/presentation" aria-haspopup="true" aria-expanded="false">
+                            Présentation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/partenaires" aria-haspopup="true" aria-expanded="false">
+                            Nos partenaires
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/don">Don</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-haspopup="true" aria-expanded="false" href="/equipe">L'équipe</a>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" aria-haspopup="true" aria-expanded="false" href="/fondation ">Fondation</a>
+                    </li>
+
+                    <% if user_signed_in? %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Mon compte</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="/profil" class="dropdown-item">Profil</a></li>
+                            <li><a href=<%= edit_user_registration_path %> class="dropdown-item">Modifier mon profil</a></li>
+                            <li class="dropdown-item"><%= link_to "Déconnexion", destroy_user_session_path , method: :delete %></li>
+                        </li>
+                    <% else %>
+                        <li class="nav-item">
+                             <a class="nav-link" aria-haspopup="true" href="/users/sign_in">Se connecter / S'inscrire</a>
+                        </li>
+                    <% end %>
+        </div>
+    </nav>

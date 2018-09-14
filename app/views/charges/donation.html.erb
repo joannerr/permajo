@@ -1,0 +1,104 @@
+<div class="page-titles-img title-space-lg parallax-overlay bg-parallax" data-jarallax='{"speed": 0.4}' style='background-image: url("images/bg13.jpg");background-position:top center;'>
+  <div class="container">
+      <div class="row">
+          <div class=" col-md-12">
+              <h1 class="text-uppercase">Don</h1>
+
+          </div>
+      </div>
+  </div>
+</div><!--page title end-->
+
+<div class="container pt90 pb50">
+            <p class="lead text-center">
+                Phrase d'accroche qui donne envie de s'intéresser au projet.
+            </p>
+            <br>
+            <p>
+              Suo placet sumque curant hic ubi. Sua carnem hac qua mem saltem falsum. Tanta simus fas solae iii ipsum annos. Fruebatur dum naturales sui praefatio ope extitisse. Ens ubi hoc statuendum expectanti facillimum objectivus aucupantur. Disputo de mutuari is obscure me. Operae hac dicere volunt nec pileos judico dividi. Ut addo nota id fide. Ut vi igni sane vita in ulla. 
+            </p>
+            <br>
+
+        <div class="bg-faded pt90 pb60">
+            <div class="container">
+                <div class="title-heading1 mb40">
+                    <h3>Pourquoi nous soutenir ?</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mb30">
+                        <div class="icon-box icon-box-center icon-border-box bg-white">
+                            <i class="icon-hover-1 bg-default icon-hover-default">1</i>
+                            <h4>Argument 1</h4>
+                            <p>
+                                Molestiae, repudiandae, maxime, earum, sapiente assumenda non odit laborum qui vero vel quos sint excepturi in laudantium.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb30">
+                        <div class="icon-box icon-box-center icon-border-box bg-white">
+                            <i class="icon-hover-1 bg-dark icon-hover-default">2</i>
+                            <h4>Argument 2</h4>
+                            <p>
+                                Molestiae, repudiandae, maxime, earum, sapiente assumenda non odit laborum qui vero vel quos sint excepturi in laudantium.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb30">
+                        <div class="icon-box icon-box-center icon-border-box bg-white">
+                            <i class="icon-hover-1 bg-success icon-hover-default">3</i>
+                            <h4>Argument 3</h4>
+                            <p>
+                                Molestiae, repudiandae, maxime, earum, sapiente assumenda non odit laborum qui vero vel quos sint excepturi in laudantium.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mb50 pt90">
+            <div class="title-heading1 mb40">
+                <h3>Comment donner ?</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-8 mb40">
+            
+                    <p>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+                    </p>
+
+                </div class="col-md-5 mb40">
+                    <%= form_tag don_path do |f| %>
+                      
+                      <article>
+                        <% if flash[:error].present? %>
+                          <div id="error_explanation">
+                          <p><%= flash[:error] %></p>
+                          </div>
+                        <% end %>
+
+                        <label class="amount">
+                          <p>Montant libre :</p>
+                          <input type="text" name="user_donation" id="user_donation"> €
+                        </label>
+                      </article>
+
+                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                              data-currency="eur"
+                              data-description="A month's subscription"
+                              data-locale="auto">
+                      </script>
+
+                    <% end %>
+                </div>
+
+                <!-- <br><br><br><br>
+                <%= form_for :user do |f| %>
+                <%= f.text_field :email, placeholder: "example@gmail.com" %> <br>
+                <%= f.submit "Send an email to this mail" %>
+                <% end %> -->
+        </div> <!-- fin container -->
+        <br>
+  <center>
+    <h2> <a href="/donateurs">Voir tous les donateurs</a> </h2>
+  </center>

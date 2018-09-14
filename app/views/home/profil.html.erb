@@ -1,0 +1,130 @@
+<!-- <div id="preloader">
+<div id="preloader-inner"></div>
+</div> -->
+<!--/preloader-->
+
+<!-- Site Overlay -->
+<div class="site-overlay"></div>
+
+<div class="page-titles-img title-space-lg parallax-overlay bg-parallax" data-jarallax='{"speed": 0.4}' style='background-image: url("images/bg13.jpg");background-position:top center;'>
+<div class="container">
+    <div class="row">
+        <div class=" col-md-12">
+            <h1 class="text-uppercase">Mon profil </h1>
+
+        </div>
+    </div>
+</div>
+</div><!--page title end-->
+<% if user_signed_in? %>
+  <div class="container pt90 pb50">
+    <p class="lead text-center">
+    Bonjour, <%= User.find(current_user.id).name.capitalize %> !
+    </p>
+<br>
+    <p class="lead text-center">
+    Ici tu as accès à tes informations personnelles ainsi qu'à l'historique des dons que tu as effectués.
+    </p>
+<br>
+
+<div class="bg-faded pt90 pb60">
+    <div class="container">
+        <div class="title-heading1 mb40">
+            <h3>Mes informations</h3>
+        </div>
+        <center>
+        <div class="informations">
+            <ul>
+                <li><span>Prénom : </span><%= User.find(current_user.id).name.capitalize %></li>
+                <li><span>Nom : </span><%= User.find(current_user.id).surname.capitalize %></li>
+                <li><span>Email : </span><%= User.find(current_user.id).email %></li>
+                <br>
+                <li><span><a href=<%= edit_user_registration_path %> >Modifier mon profil</a></span></li>
+                <br>
+                <% if current_user.admin == true %>
+                    <li><span><a href="/admin">Accéder au dashboard</a></span></li>
+                <% end %>
+            </ul>
+        </div>
+        </center>
+    </div>
+</div>
+<div class="container mb50 pt90">
+    <div class="title-heading1 mb40">
+        <h3>Mes dons</h3>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Montant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @tab_don.each_with_index do |donation,i| %>
+                    <tr>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%= donation.created_at %></td>
+                        <td><%= donation.don %>€</td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
+<div class="bg-faded pt90 pb60">
+  <div class="title-heading1 mb10">
+    <h3>Ajouter une nouvelle combinaison</h3>
+  </div>
+    <div class="text-center">
+      <p>Dans ce formulaire tu peux ajouter une nouvelle combinaison de plantes qui n'existe pas dans notre base de données.</p>
+    </div>
+    <div class="row pb30">    
+      <div class="col-lg-6 col-md-6 mr-auto ml-auto col-sm-8">
+        <form>
+          <div class="form-group"></br></br>
+            <input type="text" class="form-control" name="Famille" placeholder="Famille de la plante 1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="type" placeholder="Type (ex: fleur, racine, fruit ... )">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="Plantae1" placeholder="Plante 1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="Famille1" placeholder="Famille de la plante 2">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="type1" placeholder="Type (ex: fleur, racine, fruit ... )">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="Plantae2" placeholder="Plante 2">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="type_sol" placeholder="Type de sol (ex : calcaire, humifère ... )">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="Association" placeholder="Catégorie (conseillé, déconseillé, contradictoire ou vide)">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-rounded btn-primary btn-block">Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+<!-- temporaire -->
+<% else %>
+    <div class="col-lg-15 mb30" style="text-align: center;">
+        <br>
+        Connecte-toi pour voir ton profil !
+        <br>
+    </div>
+<% end %>
+
+</body>
